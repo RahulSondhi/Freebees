@@ -1,4 +1,4 @@
-var options = ["Home", "Main Hub", "Settings", "About Us"];
+var options = ["Home", "Main Hive", "Settings", "About the Hive"];
 var menuAnimation = false;
 var index = 0;
 
@@ -13,14 +13,6 @@ $(function() {
   });
 
   $("#logo").on("click", function() {
-    stageIncrement(1);
-  });
-
-  $("#leftArrow").on("click", function() {
-    stageIncrement(-1);
-  });
-
-  $("#rightArrow").on("click", function() {
     stageIncrement(1);
   });
 
@@ -85,11 +77,9 @@ function setMenu() {
 
 function setPage(index){
   if(index == 0){
-    $("#navigationContainer").css("visibility","hidden");
     $("#contentContainer").css("visibility","hidden");
     $("#skyContainer").css("visibility","visible");
   }else{
-    $("#navigationContainer").css("visibility","visible");
     $("#contentContainer").css("visibility","visible");
     $("#skyContainer").css("visibility","hidden");
     setHomeText();
