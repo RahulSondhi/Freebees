@@ -141,5 +141,19 @@ function stageIncrement(increment){
 }
 
 function logout(){
-  console.log("needed");
+    FB.logout(function(response) {
+        // Person is now logged out
+    });
 };
+
+
+function getEvents() {
+    FB.api(
+        "/{event-id}",
+        function (response) {
+            if (response && !response.error) {
+                /* handle the result */
+            }
+        }
+    );
+}
