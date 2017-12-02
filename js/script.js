@@ -1,4 +1,4 @@
-var options = ["Home", "Main Hive", "Settings", "About the Hive"];
+var options = ["Home", "Main Hive", "Logout", "About Us"];
 var menuAnimation = false;
 var index = 0;
 
@@ -7,6 +7,14 @@ $(function() {
   $("#menuButton").on("click", function() {
     openMenu();
   });
+
+  $("#menuButton").hover(
+  function() {
+    $( this ).attr("src","assets/menuactive.svg");
+  }, function() {
+    $( this ).attr("src","assets/menu.svg");
+  }
+);
 
   $("#menuContainer").mouseleave(function() {
     closeMenu();
@@ -24,29 +32,39 @@ $(function() {
 
 function openMenu() {
   if (!menuAnimation) {
-    $("#menuButtonContainer").css("visibility", "hidden");
     $(".menuOption").css("visibility", "visible");
     $("#menuContainer").addClass("menuOpen");
+    $("#menuButton").attr("src","assets/menuactive.svg");
+    $("#menuButton").unbind('mouseenter mouseleave')
     menuAnimation = true;
     window.setTimeout(function() {
       $("#menuContainer").removeClass("menuOpen");
-      $("#menuContainer").css("right", "0");
+      $("#menuContainer").css("top", "9%");
       menuAnimation = false;
-    }, 750);
+    }, 1250);
   }
 }
 
 function closeMenu() {
   if (!menuAnimation) {
     $("#menuContainer").addClass("menuClose");
+    $("#menuButton").attr("src","assets/menu.svg");
+
+  $("#menuButton").hover(
+    function() {
+      $( this ).attr("src","assets/menuactive.svg");
+    }, function() {
+      $( this ).attr("src","assets/menu.svg");
+    }
+  );
+
     menuAnimation = true;
     window.setTimeout(function() {
         $("#menuContainer").removeClass("menuClose");
-        $("#menuContainer").css("right", "-17%");
+        $("#menuContainer").css("top", "-30%");
         $(".menuOption").css("visibility", "hidden");
-        $("#menuButtonContainer").css("visibility", "visible");
         menuAnimation = false;
-    }, 750);
+    }, 1250);
   }
 }
 
@@ -68,11 +86,27 @@ function setMenu() {
     var divToPush = $("<div></div>");
     divToPush.attr("id", "option" + i);
     divToPush.attr("class", "menuOption button");
-    divToPush.html("<div class='menuText'>" + options[i] + "</div>");
+    divToPush.html("<img src='assets/menuitem.svg' class='menuImg'><div class='menuText'>" + options[i] + "</div>");
+    if(i == 2){divToPush.attr("onclick", "logout()");}else{
     divToPush.attr("onclick", "setPage(" + i + ")");
+    }
     $("#menuContainer").append(divToPush);
   }
   $(".menuOption").css("visibility", "hidden");
+  $(".menuImg").hover(
+  function() {
+    $( this ).attr("src","assets/menuitemactive.svg");
+  }, function() {
+    $( this ).attr("src","assets/menuitem.svg");
+  }
+);
+$(".menuText").hover(
+function() {
+  ($( this ).parent()).children(".menuImg").attr("src","assets/menuitemactive.svg");
+}, function() {
+  ($( this ).parent()).children(".menuImg").attr("src","assets/menuitem.svg");
+}
+);
 }
 
 function setPage(index){
@@ -105,3 +139,7 @@ function stageIncrement(increment){
 
   setPage(index);
 }
+
+function logout(){
+  console.log("needed");
+};

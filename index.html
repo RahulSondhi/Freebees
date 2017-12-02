@@ -24,12 +24,14 @@
   <div id="stage" class="screen">
 
     <div id="header">
-      <div id="menuButtonContainer" class="button">
-        <div id="menuButton">&#9776;</div>
+      <div id="logoHeadContainer">
+        <img src="assets/headerlogo.svg" id="headerLogo">
       </div>
-
-      <div id="menuContainer"></div>
+      <div id="menuButtonContainer" class="button">
+        <img id="menuButton" src="assets/menu.svg">
+      </div>
     </div>
+      <div id="menuContainer"></div>
 
     <div id="sky">
 

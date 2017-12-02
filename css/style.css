@@ -52,8 +52,10 @@ body {
 #header{
     position: absolute;
     width: 100%;
-    height: 15%;
-    background-color: none;
+    height: 7.5%;
+    background-color: white;
+    margin-bottom: 7.5%;
+    z-index: 100;
 }
 
 #logoContainer{
@@ -66,10 +68,6 @@ body {
     box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
 
     background: #48b3e6; /* Old browsers */
-    background: -moz-radial-gradient(center, ellipse cover, #48b3e6 0%, #e5e5e5 100%); /* FF3.6-15 */
-    background: -webkit-radial-gradient(center, ellipse cover, #48b3e6 0%,#e5e5e5 100%); /* Chrome10-25,Safari5.1-6 */
-    background: radial-gradient(ellipse at center, #48b3e6 0%,#e5e5e5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48b3e6', endColorstr='#e5e5e5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
 #logo{
@@ -91,15 +89,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48b3e6', end
     font-size: 1rem;
 }
 
+#logoHeadContainer{
+    position: absolute;
+    height: 100%;
+    top: 0%;
+    left: 1%;
+    z-index: 1;
+}
+
+#headerlogo{
+    height: 100%;
+}
+
 #menuButtonContainer{
+    position: absolute;
+    width: 7.5%;
+    height: 100%;
+    top: 0%;
+    right: 0%;
+    z-index: 1;
+}
+
+#logoHeadContainer{
     position: absolute;
     width: 7.5%;
     height: 50%;
     top: 25%;
-    right: 2%;
-    background-color: #505050;
-    border-radius: 10%;
-    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+    left: 2%;
     z-index: 1;
 }
 
@@ -107,42 +123,44 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#48b3e6', end
 #menuButton{
     position: absolute;
     font-size: 1rem;
-    top: 10%;
-    width: 70%;
-    height: 80%;
-    left: 15%;
+    top: 0%;
+    height: 100%;
+    right: 0%;
     text-align: center;
     color: white;
 }
 .button:active{
-  box-shadow: 0 0.15625rem grey;
   transform: translateY(0.250rem);
 }
 
 #menuContainer{
     position: absolute;
-    top: 15%;
-    right: -17%;
-    width: 17%;
-    height: 405%;
-    z-index: 2;
+    top: -30%;
+    right: -2%;
+    width: 13%;
+    height: 35%;
+    z-index: 0;
+    margin: 0%;
 }
 
 .menuOption{
     position: relative;
-    width: 100%;
-    height: 12%;
-    margin-top: 5%;
-    background-color: #505050;
-    border-radius: 10%;
-    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+    right: 0%;
+    height: 25%;
+    margin: -12%;
+    background-color: none;
+}
+
+.menuImg{
+    height: 100%;
+    margin: 0%;
 }
 
 .menuText{
     position: absolute;
-    height: 15%;
+    height: 20%;
     width: 80%;
-    top: 30%;
+    top: 20%;
     left: 10%;
     font-size: 0.5rem;
     color: white;
