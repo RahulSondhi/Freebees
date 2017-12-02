@@ -78,6 +78,15 @@ body {
     height: 90%;
 }
 
+#facebookButton{
+    position: absolute;
+    left : 38%;
+    top : 55%;
+    width: 2em;
+    height: 2em;
+
+}
+
 #logoText{
     position: absolute;
     width: 25%;

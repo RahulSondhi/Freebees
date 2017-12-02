@@ -41,10 +41,11 @@
 
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected') {
-            console.log('Logged in.');
+            getEvent();
         }
         else {
             FB.login();
+
         }
     });
 </script>
@@ -71,10 +72,10 @@
       <div id="logoContainer" class="button">
         <img src="assets/logo.svg" id="logo">
       </div>
-      <div id="logoText"></div>
-    </div>
+        <div id="logoText"></div>
 
-    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+      </div>
+
 
     <div id="contentContainer">
       <div id="sidebar">
@@ -94,6 +95,8 @@
       <div id=ye></div>
       <div id=equis></div>
       <img src="assets/logo.svg" id="bee">
+      <div id="facebookButton" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+
     </div>
   </div>
 </body>
