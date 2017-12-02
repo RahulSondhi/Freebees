@@ -1,6 +1,7 @@
-function getEvent() {
+function getEvents() {
 
     FB.getLoginStatus(function(response) {
+        console.log("getEvents")
         if (response.status === 'connected') {
             FB.api(
                 "/{event-id}",

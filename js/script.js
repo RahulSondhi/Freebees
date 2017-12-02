@@ -141,5 +141,5 @@ function stageIncrement(increment){
 }
 
 function logout(){
-  console.log("needed");
+  FB.logout();
 };
