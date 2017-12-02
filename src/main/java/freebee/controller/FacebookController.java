@@ -27,13 +27,13 @@ public class FacebookController {
     @RequestMapping("/facebookConnect")
     public String helloFacebook(Model model) {
         if (connectionRepository.findPrimaryConnection(Facebook.class) == null) {
-            return "redirect:/connect/facebook";
+            return "redirect:/index";
         }
 
         model.addAttribute("facebookProfile", facebook.userOperations().getUserProfile());
         PagedList<Post> feed = facebook.feedOperations().getFeed();
         model.addAttribute("feed", feed);
-        return "hello";
+        return "index";
     }
 
 }

@@ -1,0 +1,66 @@
+#ye {
+min-height: 50%;
+width: 100%;
+animation: vertical 7s infinite alternate ease-in-out 70ms;
+/*background: silver; */
+}
+#ye::before {
+content: "";
+display: inline-block;
+min-height: 50%;
+width: 0%;
+-webkit-animation: vertical 3s infinite alternate ease-out 77ms;
+animation: vertical 3s infinite alternate ease-out 77ms;
+/*background: red; opacity: .5; */
+}
+#ye::after {
+content: "";
+display: inline-block;
+min-height: 10%;
+width: 0%;
+-webkit-animation: vertical 9s infinite alternate ease-in 333ms;
+animation: vertical 9s infinite alternate ease-in 333ms;
+/*background: yellow; opacity: .5; */
+}
+
+#equis {
+height: 50%;
+min-width: 0%;
+display: inline-block;
+-webkit-animation: horizontal 11s infinite alternate ease-out 137ms;
+animation: horizontal 11s infinite alternate ease-out 137ms;
+/*background: green; */
+}
+#equis::before {
+content: "";
+display: block;
+height: 50%;
+width: 0%;
+-webkit-animation: horizontal 9s infinite alternate ease-in 90ms;
+animation: horizontal 9s infinite alternate ease-in 90ms;
+/*background: red; opacity: .5; */
+}
+#equis::after {
+content: "";
+display: block;
+height: 50%;
+width: 100%;
+-webkit-animation: horizontal 7s infinite alternate ease-in-out 70ms;
+animation: horizontal 7s infinite alternate ease-in-out 70ms;
+/*background: blue; opacity: .5; */
+}
+
+@keyframes horizontal {
+ from {min-width: 0%; }
+   to {min-width: 95%; }
+}
+@keyframes vertical {
+ from {min-height: 50%; }
+   to {min-height: 10%; }
+}
+
+#bee{
+vertical-align: top;
+position: absolute;
+width: 10%;
+}
