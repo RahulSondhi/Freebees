@@ -1,18 +1,19 @@
+var username;
+var userLocation;
+
 function getEvents() {
 
     FB.getLoginStatus(function(response) {
         console.log("getEvents")
         if (response.status === 'connected') {
-            FB.api(
-                "/{event-id}",
-                function (response) {
-                    if (response && !response.error) {
-                        /* handle the result */
-                        console.log(response);
-                    }
-                }
-            );
+            FB.api('/me?fields=id,name,location', function(response) {
+                username = response["name"];
+                userLocation = response.location.name;
+            });
         }
         }
     );
+
+    console.log(username);
+    console.log(userLocation);
 }

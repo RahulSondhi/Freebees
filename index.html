@@ -40,15 +40,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            getEvents();
-        }
-        else {
-            FB.login();
 
-        }
-    });
 </script>
 
 
@@ -96,7 +88,8 @@
       <div id=ye></div>
       <div id=equis></div>
       <img src="assets/logo.svg" id="bee">
-      <div id="facebookButton" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="getEvents();"></div>    </div>
+      <div id="facebookButton" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="getEvents();"></div>
+    </div>
   </div>
 </body>
 
