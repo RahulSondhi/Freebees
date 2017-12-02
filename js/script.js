@@ -87,7 +87,7 @@ function setMenu() {
     divToPush.attr("id", "option" + i);
     divToPush.attr("class", "menuOption button");
     divToPush.html("<img src='assets/menuitem.svg' class='menuImg'><div class='menuText'>" + options[i] + "</div>");
-    if(i == 2){divToPush.attr("onclick", "logout()");}else{
+    if(i == 2){divToPush.attr("onclick", "$('#FBButton').click()");}else{
     divToPush.attr("onclick", "setPage(" + i + ")");
     }
     $("#menuContainer").append(divToPush);
@@ -109,15 +109,56 @@ function() {
 );
 }
 
-function setPage(index){
-  if(index == 0){
+function setPage(newIndex){
+  if(newIndex == 0){
+
+    if(index == 1){
+      //animation 1 to 0
+    }else{
+      //animation 2 to 1
+    }
+
+
     $("#contentContainer").css("visibility","hidden");
     $("#skyContainer").css("visibility","visible");
-  }else{
+    setHomeText();
+  }else if (newIndex == 1){
+
+    if(index == 0){
+      //animation 0 to 1
+    }else{
+      //animation 2 to 1
+    }
+
     $("#contentContainer").css("visibility","visible");
     $("#skyContainer").css("visibility","hidden");
-    setHomeText();
+  } else if (newIndex == 2){
+
+    if(index == 0){
+      //animation 0 to 2
+    }else{
+      //animation 1 to 2
+    }
+
+    $("#contentContainer").css("visibility","visible");
+    $("#skyContainer").css("visibility","hidden");
   }
+}
+
+function constructMainHive(){
+
+}
+
+function hideMainHive(){
+
+}
+
+function constructAbout(){
+
+}
+
+function hideAbout(){
+
 }
 
 function setHomeText(){
