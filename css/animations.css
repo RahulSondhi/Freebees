@@ -1,0 +1,21 @@
+/*Animations*/
+
+.menuOpen{
+    animation: menuOpen 0.75s ease-in-out;
+}
+
+.menuClose{
+    animation: menuClose 0.75s ease-in-out;
+}
+
+/*Keyframes*/
+
+@keyframes menuOpen {
+    0%   {right: -20%;}
+    100% {right: 0%;}
+}
+
+@keyframes menuClose {
+    0%   {right: 0%;}
+    100% {right: -20%;}
+}
