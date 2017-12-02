@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/resize.js"></script>
   <script src="js/script.js"></script>
+  <script src="js/event.js"></script>
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -39,14 +40,7 @@
         fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
 
-    FB.getLoginStatus(function(response) {
-        if (response.status === 'connected') {
-            console.log('Logged in.');
-        }
-        else {
-            FB.login();
-        }
-    });
+
 </script>
 
 
@@ -72,8 +66,9 @@
       <div id="logoContainer" class="button">
         <img src="assets/logo.svg" id="logo">
       </div>
-      <div id="logoText"></div>
-    </div>
+        <div id="logoText"></div>
+
+      </div>
 
     <div id="contentContainer">
       <div id="sidebar">
@@ -93,6 +88,7 @@
       <div id=ye></div>
       <div id=equis></div>
       <img src="assets/logo.svg" id="bee">
+      <div id="facebookButton" class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="true" onlogin="getEvents();"></div>
     </div>
   </div>
 </body>
