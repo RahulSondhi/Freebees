@@ -1,1 +1,206 @@
+@font-face {
+    font-family: "FuturaBook";
+    src: url("/fonts/FuturaPTBook.otf");
+}
 
+@font-face {
+    font-family: "FuturaMedium";
+    src: url("/fonts/FuturaPTMedium.otf");
+}
+
+@font-face {
+    font-family: "FuturaDemi";
+    src: url("/fonts/FuturaPTDemi.otf");
+}
+
+@font-face {
+    font-family: "FuturaBold";
+    src: url("/fonts/FuturaPTBold.otf");
+}
+
+@font-face {
+    font-family: "FuturaHeavy";
+    src: url("/fonts/FuturaPTHeavy.otf");
+}
+
+body {
+    background-color: #000;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.screen {
+    position: absolute;
+    overflow: hidden;
+}
+
+#skyContainer{
+    visibility: visible;
+    display: inline-flex;
+}
+
+#citySkyline{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    left: 0;
+    bottom: 0;
+}
+
+#board{
+    position: absolute;
+}
+
+#header{
+    position: absolute;
+    width: 100%;
+    height: 15%;
+    background-color: none;
+}
+
+#logoContainer{
+    position: absolute;
+    width: 20%;
+    height: 25%;
+    left: 40%;
+    top: 15%;
+    border-radius: 100%;
+    background-color: #505050;
+    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+}
+
+#logo{
+    position: absolute;
+    width: 80%;
+    left: 10%;
+    top: 10%;
+    height: 80%;
+}
+
+#logoLeftText{
+    position: absolute;
+    width: 15%;
+    height: 10%;
+    left: 22%;
+    top: 22.5%;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#logoRightText{
+    position: absolute;
+    width: 15%;
+    height: 10%;
+    right: 23%;
+    top: 22.5%;
+    color: white;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#menuButtonContainer{
+    position: absolute;
+    width: 7.5%;
+    height: 50%;
+    top: 25%;
+    left: 2%;
+    background-color: #505050;
+    border-radius: 10%;
+    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+    z-index: 1000;
+}
+
+
+#menuButton{
+    position: absolute;
+    font-size: 1rem;
+    top: 10%;
+    width: 70%;
+    height: 80%;
+    left: 15%;
+    text-align: center;
+    color: white;
+}
+
+#homeContainer{
+    position: absolute;
+    width: 7.5%;
+    height: 50%;
+    top: 25%;
+    right: 2%;
+    background-color: #505050;
+    border-radius: 10%;
+    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+    z-index: 1;
+}
+
+#homeButton{
+    position: absolute;
+    font-size: 1rem;
+    top: 10%;
+    width: 70%;
+    height: 80%;
+    left: 15%;
+    text-align: center;
+    color: white;
+}
+
+.button:active{
+  box-shadow: 0 0.15625rem grey;
+  transform: translateY(0.250rem);
+}
+
+#menuContainer{
+    position: absolute;
+    top: 15%;
+    left: -17%;
+    width: 17%;
+    height: 405%;
+    z-index: 2;
+}
+
+.menuOption{
+    position: relative;
+    width: 100%;
+    height: 12%;
+    margin-top: 5%;
+    background-color: #505050;
+    border-radius: 10%;
+    box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+}
+
+.menuText{
+    position: absolute;
+    height: 15%;
+    width: 80%;
+    top: 30%;
+    left: 10%;
+    font-size: 0.5rem;
+    color: white;
+    text-align: center;
+}
+
+#navigationContainer{
+    position: absolute;
+    width: 100%;
+    height: 10%;
+    top: 45%;
+    visibility: hidden;
+    z-index: 1;
+}
+
+#rightArrow{
+    position: absolute;
+    right: 2%;
+}
+
+#leftArrow{
+    position: absolute;
+    left: 2%;
+}
+
+.arrow{
+    width: 10%;
+    height: 100%;
+}
