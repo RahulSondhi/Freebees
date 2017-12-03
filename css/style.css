@@ -44,9 +44,10 @@ body {
 
 #citySkyline{
     position: absolute;
-    width: 100%;
+    width: 300%;
     left: 0;
     bottom: 0;
+    z-index: 0;
 }
 
 #header{
@@ -66,8 +67,17 @@ body {
     top: 15%;
     border-radius: 100%;
     box-shadow: 0.15625rem 0.15625rem 0.15625rem grey;
+    z-index: 100;
 
     background: #48b3e6; /* Old browsers */
+}
+
+#logoContainer:hover{
+    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  animation-iteration-count: infinite;
+animation-timing-function: linear;
 }
 
 #logo{
@@ -90,12 +100,18 @@ body {
 #logoText{
     position: absolute;
     width: 25%;
-    height: 10%;
+    height: 6%;
     left: 37.5%;
     top: 42%;
-    color: white;
+    color: #FEBC2E;
+    background-color: #48b3e6;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 15px;
     text-align: center;
     font-size: 1rem;
+    z-index: 1;
 }
 
 #logoHeadContainer{
@@ -147,7 +163,7 @@ body {
     right: -2%;
     width: 13%;
     height: 35%;
-    z-index: 0;
+    z-index: 10;
     margin: 0%;
 }
 

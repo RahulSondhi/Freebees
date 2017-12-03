@@ -8,6 +8,30 @@
     animation: menuClose 1.25s ease-in-out;
 }
 
+.Anim1to2{
+    animation: Anim1to2 5s ease-in-out;
+}
+
+.Anim1to3{
+    animation: Anim1to3 5s ease-in-out;
+}
+
+.Anim2to1{
+    animation: Anim2to1 5s ease-in-out;
+}
+
+.Anim2to3{
+    animation: Anim2to3 5s ease-in-out;
+}
+
+.Anim3to1{
+    animation: Anim3to1 5s ease-in-out;
+}
+
+.Anim3to2{
+    animation: Anim3to2 5s ease-in-out;
+}
+
 /*Keyframes*/
 
 @keyframes menuOpen {
@@ -18,4 +42,52 @@
 @keyframes menuClose {
     0%   {top: 8%;}
     100% {top: -20%;}
+}
+
+@keyframes Anim1to2 {
+    0%   {left: 0%;}
+    100% {left: -100%;}
+}
+
+@keyframes Anim1t03 {
+    0%   {left: 0%;}
+    100% {left: -200%;}
+}
+
+@keyframes Anim2to1 {
+    0%   {left: -100%;}
+    100% {left: 0%;}
+}
+
+@keyframes Anim2t03 {
+    0%   {left: -100%;}
+    100% {left: -200%;}
+}
+
+@keyframes Anim3to1 {
+    0%   {left: -200%;}
+    100% {left: 0%;}
+}
+
+@keyframes Anim3t02 {
+    0%   {left: -200%;}
+    100% {left: -100%;}
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
 }

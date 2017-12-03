@@ -1,5 +1,6 @@
-var options = ["Home", "Main Hive", "Logout", "About Us"];
+var options = ["Home", "Main Hive", "About Us"];
 var menuAnimation = false;
+var animation = false;
 var index = 0;
 
 $(function() {
@@ -9,19 +10,21 @@ $(function() {
   });
 
   $("#menuButton").hover(
-  function() {
-    $( this ).attr("src","assets/menuactive.svg");
-  }, function() {
-    $( this ).attr("src","assets/menu.svg");
-  }
-);
+    function() {
+      $(this).attr("src", "assets/menuactive.svg");
+    },
+    function() {
+      $(this).attr("src", "assets/menu.svg");
+    }
+  );
 
   $("#menuContainer").mouseleave(function() {
     closeMenu();
   });
 
   $("#logo").on("click", function() {
-    stageIncrement(1);
+
+    setPage(1);
   });
 
   setSky();
@@ -31,10 +34,10 @@ $(function() {
 
 
 function openMenu() {
-  if (!menuAnimation) {
+  if (!menuAnimation && !animation) {
     $(".menuOption").css("visibility", "visible");
     $("#menuContainer").addClass("menuOpen");
-    $("#menuButton").attr("src","assets/menuactive.svg");
+    $("#menuButton").attr("src", "assets/menuactive.svg");
     $("#menuButton").unbind('mouseenter mouseleave')
     menuAnimation = true;
     window.setTimeout(function() {
@@ -46,38 +49,39 @@ function openMenu() {
 }
 
 function closeMenu() {
-  if (!menuAnimation) {
+  if (!menuAnimation && !animation) {
     $("#menuContainer").addClass("menuClose");
-    $("#menuButton").attr("src","assets/menu.svg");
+    $("#menuButton").attr("src", "assets/menu.svg");
 
-  $("#menuButton").hover(
-    function() {
-      $( this ).attr("src","assets/menuactive.svg");
-    }, function() {
-      $( this ).attr("src","assets/menu.svg");
-    }
-  );
+    $("#menuButton").hover(
+      function() {
+        $(this).attr("src", "assets/menuactive.svg");
+      },
+      function() {
+        $(this).attr("src", "assets/menu.svg");
+      }
+    );
 
     menuAnimation = true;
     window.setTimeout(function() {
-        $("#menuContainer").removeClass("menuClose");
-        $("#menuContainer").css("top", "-30%");
-        $(".menuOption").css("visibility", "hidden");
-        menuAnimation = false;
+      $("#menuContainer").removeClass("menuClose");
+      $("#menuContainer").css("top", "-30%");
+      $(".menuOption").css("visibility", "hidden");
+      menuAnimation = false;
     }, 1250);
   }
 }
 
 function setSky() {
   var time = new Date();
-  $("#stage").addClass("sky-gradient-"+time.getHours());
+  $("#stage").addClass("sky-gradient-" + time.getHours());
   if (time.getHours() > 15 || time.getHours() < 8) {
     $("body").css("background-color", "#505050");
   } else {
     $("body").css("background-color", "#000");
   }
   window.setTimeout(function() {
-      setSky();
+    setSky();
   }, 60000);
 }
 
@@ -87,100 +91,174 @@ function setMenu() {
     divToPush.attr("id", "option" + i);
     divToPush.attr("class", "menuOption button");
     divToPush.html("<img src='assets/menuitem.svg' class='menuImg'><div class='menuText'>" + options[i] + "</div>");
-    if(i == 2){divToPush.attr("onclick", "$('#FBButton').click()");}else{
-    divToPush.attr("onclick", "setPage(" + i + ")");
-    }
+      divToPush.attr("onclick", "setPage(" + i + ")");
     $("#menuContainer").append(divToPush);
   }
   $(".menuOption").css("visibility", "hidden");
   $(".menuImg").hover(
-  function() {
-    $( this ).attr("src","assets/menuitemactive.svg");
-  }, function() {
-    $( this ).attr("src","assets/menuitem.svg");
+    function() {
+      $(this).attr("src", "assets/menuitemactive.svg");
+    },
+    function() {
+      $(this).attr("src", "assets/menuitem.svg");
+    }
+  );
+  $(".menuText").hover(
+    function() {
+      ($(this).parent()).children(".menuImg").attr("src", "assets/menuitemactive.svg");
+    },
+    function() {
+      ($(this).parent()).children(".menuImg").attr("src", "assets/menuitem.svg");
+    }
+  );
+}
+
+function setPage(newIndex) {
+  if (!animation) {
+    if (newIndex == 0) {
+
+      if (index == 1) {
+        $("#citySkyline").removeClass("Anim1to2");
+        $("#citySkyline").removeClass("Anim1to3");
+        $("#citySkyline").addClass("Anim2to1");
+        $("#citySkyline").removeClass("Anim2to3");
+        $("#citySkyline").removeClass("Anim3to2");
+        $("#citySkyline").removeClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim2to1");
+          $("#citySkyline").css("left", "0%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "hidden");
+          $("#skyContainer").css("visibility", "visible");
+          setHomeText();
+        }, 5000);
+      } else if (index == 2){
+        $("#citySkyline").removeClass("Anim1to2");
+        $("#citySkyline").removeClass("Anim1to3");
+        $("#citySkyline").removeClass("Anim2to1");
+        $("#citySkyline").removeClass("Anim2to3");
+        $("#citySkyline").removeClass("Anim3to2");
+        $("#citySkyline").addClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim3to1");
+          $("#citySkyline").css("left", "0%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "hidden");
+          $("#skyContainer").css("visibility", "visible");
+          setHomeText();
+        }, 5000);
+      }
+
+    } else if (newIndex == 1) {
+
+      if (index == 0) {
+        $("#citySkyline").addClass("Anim1to2");
+        $("#citySkyline").removeClass("Anim1to3");
+        $("#citySkyline").removeClass("Anim2to1");
+        $("#citySkyline").removeClass("Anim2to3");
+        $("#citySkyline").removeClass("Anim3to2");
+        $("#citySkyline").removeClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim1to2");
+          $("#citySkyline").css("left", "-100%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "visible");
+        }, 5000);
+        $("#skyContainer").css("visibility", "hidden");
+      } else if (index == 2){
+        $("#citySkyline").removeClass("Anim1to2");
+        $("#citySkyline").removeClass("Anim1to3");
+        $("#citySkyline").removeClass("Anim2to1");
+        $("#citySkyline").removeClass("Anim2to3");
+        $("#citySkyline").addClass("Anim3to2");
+        $("#citySkyline").removeClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim3to2");
+          $("#citySkyline").css("left", "-100%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "visible");
+        }, 5000);
+        $("#skyContainer").css("visibility", "hidden");
+      }
+    } else if (newIndex == 2) {
+
+      if (index == 0) {
+        $("#citySkyline").removeClass("Anim1to2");
+        $("#citySkyline").addClass("Anim1to3");
+        $("#citySkyline").removeClass("Anim2to1");
+        $("#citySkyline").removeClass("Anim2to3");
+        $("#citySkyline").removeClass("Anim3to2");
+        $("#citySkyline").removeClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim1to3");
+          $("#citySkyline").css("left", "-200%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "visible");
+        }, 5000);
+        $("#skyContainer").css("visibility", "hidden");
+      } else if (index == 1){
+        $("#citySkyline").removeClass("Anim1to2");
+        $("#citySkyline").removeClass("Anim1to3");
+        $("#citySkyline").removeClass("Anim2to1");
+        $("#citySkyline").addClass("Anim2to3");
+        $("#citySkyline").removeClass("Anim3to2");
+        $("#citySkyline").removeClass("Anim3to1");
+        animation = true;
+        window.setTimeout(function() {
+          $("#citySkyline").removeClass("Anim2to3");
+          $("#citySkyline").css("left", "-200%");
+          animation = false;
+          index = newIndex;
+          $("#contentContainer").css("visibility", "visible");
+        }, 5000);
+        $("#skyContainer").css("visibility", "hidden");
+      }
+    }
   }
-);
-$(".menuText").hover(
-function() {
-  ($( this ).parent()).children(".menuImg").attr("src","assets/menuitemactive.svg");
-}, function() {
-  ($( this ).parent()).children(".menuImg").attr("src","assets/menuitem.svg");
-}
-);
 }
 
-function setPage(newIndex){
-  if(newIndex == 0){
-
-    if(index == 1){
-      //animation 1 to 0
-    }else{
-      //animation 2 to 1
-    }
-
-
-    $("#contentContainer").css("visibility","hidden");
-    $("#skyContainer").css("visibility","visible");
-    setHomeText();
-  }else if (newIndex == 1){
-
-    if(index == 0){
-      //animation 0 to 1
-    }else{
-      //animation 2 to 1
-    }
-
-    $("#contentContainer").css("visibility","visible");
-    $("#skyContainer").css("visibility","hidden");
-  } else if (newIndex == 2){
-
-    if(index == 0){
-      //animation 0 to 2
-    }else{
-      //animation 1 to 2
-    }
-
-    $("#contentContainer").css("visibility","visible");
-    $("#skyContainer").css("visibility","hidden");
-  }
-}
-
-function constructMainHive(){
+function constructMainHive() {
 
 }
 
-function hideMainHive(){
+function hideMainHive() {
 
 }
 
-function constructAbout(){
+function constructAbout() {
 
 }
 
-function hideAbout(){
+function hideAbout() {
 
 }
 
-function setHomeText(){
-  var phrases = ["UnBEElievable Events","Buzzing Finds", "Look a FreeBEE"];
+function setHomeText() {
+  var phrases = ["UnBEElievable", "Buzzing Finds", "A FreeBEE"];
   var chosenphrase = "";
   var index = Math.floor(Math.random() * (phrases.length));
   chosenphrase = phrases[index];
   $("#logoText").html(chosenphrase);
 }
 
-function stageIncrement(increment){
+function stageIncrement(increment) {
 
-  var newIndex= index + increment;
-  if(newIndex <= options.length && newIndex > -1){
+  var newIndex = index + increment;
+  if (newIndex <= options.length && newIndex > -1) {
     index = newIndex;
-  }else{
+  } else {
     index = 0;
   }
 
   setPage(index);
 }
-
-function logout(){
-  FB.logout();
-};
