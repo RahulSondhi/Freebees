@@ -23,14 +23,50 @@ $(function() {
   });
 
   $("#logo").on("click", function() {
-
     setPage(1);
   });
 
   setSky();
   setMenu();
   setHomeText();
+
+  $.getJSON("https://partner-api.groupon.com/deals.json?callback=?", {
+      tsToken: "56c7c45c53a9636a43f52f4b89cf97242200142a",
+      division_id: "new-york", //Set your local city
+      //offset: 0,
+      limit: 50
+    })
+    .done(function(data) {
+      buildCoupon(data);
+    });
 });
+
+function buildCoupon(data) {
+  $.each(data.deals, function(i, v) {
+    $title = $("<a href='" + v.dealUrl + "'>" + v.announcementTitle + "</a>", {
+      html: v.announcementTitle,
+      class: "group inner list-group-item-heading"
+    }).wrap(function() {
+      return "<div class='" + $(this).text() + "'></div>";
+    });
+    $price = $("<div/>", {
+      html: v.options[0].price.formattedAmount,
+      class: "price"
+    });
+    $thumbnail = $("<div/>", {
+      class: "thumbnail"
+    }).append($title);
+    $deal = $("<div class='labelOptions'>", {
+      class: "item"
+    });
+    $img = $("<img class='labelImgOptions' src='assets/events.svg'>", {
+      class: "item"
+    });
+    $("#mainContentCoupon").append($deal);
+    $deal.prepend($thumbnail);
+    $thumbnail.append($img);
+  });
+}
 
 
 function openMenu() {
@@ -91,7 +127,7 @@ function setMenu() {
     divToPush.attr("id", "option" + i);
     divToPush.attr("class", "menuOption button");
     divToPush.html("<img src='assets/menuitem.svg' class='menuImg'><div class='menuText'>" + options[i] + "</div>");
-      divToPush.attr("onclick", "setPage(" + i + ")");
+    divToPush.attr("onclick", "setPage(" + i + ")");
     $("#menuContainer").append(divToPush);
   }
   $(".menuOption").css("visibility", "hidden");
@@ -134,7 +170,9 @@ function setPage(newIndex) {
           $("#skyContainer").css("visibility", "visible");
           setHomeText();
         }, 5000);
-      } else if (index == 2){
+        hideMainHive();
+        hideAbout();
+      } else if (index == 2) {
         $("#citySkyline").removeClass("Anim1to2");
         $("#citySkyline").removeClass("Anim1to3");
         $("#citySkyline").removeClass("Anim2to1");
@@ -151,6 +189,8 @@ function setPage(newIndex) {
           $("#skyContainer").css("visibility", "visible");
           setHomeText();
         }, 5000);
+        hideMainHive();
+        hideAbout();
       }
 
     } else if (newIndex == 1) {
@@ -169,9 +209,11 @@ function setPage(newIndex) {
           animation = false;
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
+          constructMainHive();
         }, 5000);
+        hideAbout();
         $("#skyContainer").css("visibility", "hidden");
-      } else if (index == 2){
+      } else if (index == 2) {
         $("#citySkyline").removeClass("Anim1to2");
         $("#citySkyline").removeClass("Anim1to3");
         $("#citySkyline").removeClass("Anim2to1");
@@ -185,7 +227,9 @@ function setPage(newIndex) {
           animation = false;
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
+          constructMainHive();
         }, 5000);
+        hideAbout();
         $("#skyContainer").css("visibility", "hidden");
       }
     } else if (newIndex == 2) {
@@ -204,9 +248,11 @@ function setPage(newIndex) {
           animation = false;
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
+          constructAbout();
         }, 5000);
+        hideMainHive();
         $("#skyContainer").css("visibility", "hidden");
-      } else if (index == 1){
+      } else if (index == 1) {
         $("#citySkyline").removeClass("Anim1to2");
         $("#citySkyline").removeClass("Anim1to3");
         $("#citySkyline").removeClass("Anim2to1");
@@ -220,7 +266,9 @@ function setPage(newIndex) {
           animation = false;
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
+          constructAbout();
         }, 5000);
+        hideMainHive();
         $("#skyContainer").css("visibility", "hidden");
       }
     }
@@ -228,19 +276,25 @@ function setPage(newIndex) {
 }
 
 function constructMainHive() {
-
+  $("#main").css("visibility", "visible");
+  $("#mainContentCoupon").css("visibility", "visible");
+  $("#label").html("Buzzing Deals");
 }
 
 function hideMainHive() {
-
+  $("#main").css("visibility", "hidden");
+  $("#mainContentCoupon").css("visibility", "hidden");
 }
 
 function constructAbout() {
-
+  $("#main").css("visibility", "visible");
+  $("#mainContentAbout").css("visibility", "visible");
+  $("#label").html("About Us");
 }
 
 function hideAbout() {
-
+  $("#main").css("visibility", "hidden");
+    $("#mainContentAbout").css("visibility", "hidden");
 }
 
 function setHomeText() {

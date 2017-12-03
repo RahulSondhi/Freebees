@@ -43,10 +43,17 @@ body {
 }
 
 #citySkyline{
-    position: absolute;
+    /*position: absolute;
     width: 300%;
     left: 0;
     bottom: 0;
+    z-index: 0;*/
+
+    position: absolute;
+    width: 300%;
+    height: 115%;
+    left: 0;
+    bottom: -25%;
     z-index: 0;
 }
 
@@ -78,6 +85,106 @@ body {
   backface-visibility: hidden;
   animation-iteration-count: infinite;
 animation-timing-function: linear;
+}
+
+#main{
+  position: absolute;
+  width: 80%;
+  left: 10%;
+  height: 70%;
+  bottom: 15%;
+  visibility: hidden;
+  z-index: 1;
+}
+
+#mainTitle{
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  height: 15%;
+  top: 0;
+}
+
+#mainContentCoupon{
+  position: absolute;
+  top: 15%;
+  height: 80%;
+  width: 90%;
+  left: 5%;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+#mainContentAbout{
+  position: absolute;
+  top: 15%;
+  height: 80%;
+  width: 90%;
+  left: 5%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.labelOptions{
+  width: 90%;
+  left: 5%;
+  height: 20%;
+  margin-bottom: 2%;
+}
+
+#mainContentAboutText{
+  position: absolute;
+  top: 10%;
+  height: 80%;
+  width: 80%;
+  left: 5%;
+  padding: 5%;
+  text-overflow: ellipsis;
+  font-size: 0.8rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+  background: #48b3e6;
+  color: #FEBC2E;
+  border-radius:15px;
+}
+
+a{
+  position: absolute;
+  left: 20%;
+  width: 65%;
+  height: 9%;
+  font-size: 0.75rem;
+  z-index: 100;
+  margin: 4%;
+  margin-top:6%;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+.labelImgOptions{
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  left: 5%;
+  margin: 0;
+  margin-bottom: 2%;
+  z-index: 0;
+}
+
+#label{
+  position: absolute;
+  width: 45%;
+  left: 27.5%;
+  height: 80%;
+  top: 10%;
+  text-align: center;
+}
+
+#labelImg{
+  position: absolute;
+  width: 90%;
+  left: 5%;
+  height: 100%;
 }
 
 #logo{
@@ -117,13 +224,23 @@ animation-timing-function: linear;
 #logoHeadContainer{
     position: absolute;
     height: 100%;
+    width: 50%;
     top: 0%;
     left: 1%;
     z-index: 1;
 }
 
 #headerlogo{
+  position: absolute;
     height: 100%;
+    left: 57.5%;
+}
+
+#headerlogo0{
+  position: absolute;
+    height: 200%;
+    left: 0;
+    bottom: -32.5%;
 }
 
 #menuButtonContainer{
@@ -189,4 +306,24 @@ animation-timing-function: linear;
     font-size: 0.5rem;
     color: white;
     text-align: center;
+}
+
+::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  	border-radius: 10px;
+  	background-color: rgba(245, 245, 245, 0.3);
+}
+
+::-webkit-scrollbar
+{
+  width: 12px;
+	background-color: rgba(245, 245, 245, 0.3);
+}
+
+::-webkit-scrollbar-thumb
+{
+  border-radius: 10px;
+  	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  	background-color: rgba(85, 85, 85, 0.3);
 }
