@@ -127,6 +127,7 @@ animation-timing-function: linear;
 }
 
 #mainContentAboutText{
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   top: 10%;
   height: 80%;
@@ -143,6 +144,7 @@ animation-timing-function: linear;
 }
 
 a{
+  font-family: 'Roboto', sans-serif;
   position: absolute;
   left: 20%;
   width: 65%;
@@ -166,11 +168,15 @@ a{
 }
 
 #label{
+  font-family: 'Montserrat', sans-serif;
+  color: #493932;
   position: absolute;
+  font-size: 0.75rem;
   width: 45%;
   left: 27.5%;
   height: 80%;
-  top: 10%;
+  top: 15%;
+  font-weight: 900;
   text-align: center;
 }
 

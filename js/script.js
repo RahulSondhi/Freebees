@@ -43,7 +43,7 @@ $(function() {
 
 function buildCoupon(data) {
   $.each(data.deals, function(i, v) {
-    $title = $("<a href='" + v.dealUrl + "'>" + v.announcementTitle + "</a>", {
+    $title = $("<a href='" + v.dealUrl + "'target='_blank'>" + v.announcementTitle + "</a>", {
       html: v.announcementTitle,
       class: "group inner list-group-item-heading"
     }).wrap(function() {
@@ -277,7 +277,7 @@ function setPage(newIndex) {
 function constructMainHive() {
   $("#main").css("visibility", "visible");
   $("#mainContentCoupon").css("visibility", "visible");
-  $("#label").html("Buzzing Deals");
+  $("#label").html("BUZZING DEALS");
 }
 
 function hideMainHive() {
@@ -288,7 +288,7 @@ function hideMainHive() {
 function constructAbout() {
   $("#main").css("visibility", "visible");
   $("#mainContentAbout").css("visibility", "visible");
-  $("#label").html("About Us");
+  $("#label").html("ABOUT US");
 }
 
 function hideAbout() {
