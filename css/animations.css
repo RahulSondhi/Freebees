@@ -1,35 +1,35 @@
 /*Animations*/
 
 .menuOpen{
-    animation: menuOpen 1.25s ease-in-out;
+    animation: menuOpen .25s ease-in-out;
 }
 
 .menuClose{
-    animation: menuClose 1.25s ease-in-out;
+    animation: menuClose .25s ease-in-out;
 }
 
 .Anim1to2{
-    animation: Anim1to2 5s ease-in-out;
+    animation: Anim1to2 .5s ease-in-out;
 }
 
 .Anim1to3{
-    animation: Anim1to3 5s ease-in-out;
+    animation: Anim1to3 .5s ease-in-out;
 }
 
 .Anim2to1{
-    animation: Anim2to1 5s ease-in-out;
+    animation: Anim2to1 .5s ease-in-out;
 }
 
 .Anim2to3{
-    animation: Anim2to3 5s ease-in-out;
+    animation: Anim2to3 .5s ease-in-out;
 }
 
 .Anim3to1{
-    animation: Anim3to1 5s ease-in-out;
+    animation: Anim3to1 .5s ease-in-out;
 }
 
 .Anim3to2{
-    animation: Anim3to2 5s ease-in-out;
+    animation: Anim3to2 .5s ease-in-out;
 }
 
 /*Keyframes*/

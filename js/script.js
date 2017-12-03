@@ -34,7 +34,7 @@ $(function() {
       tsToken: "56c7c45c53a9636a43f52f4b89cf97242200142a",
       division_id: "new-york", //Set your local city
       //offset: 0,
-      limit: 50
+      limit: 150
     })
     .done(function(data) {
       buildCoupon(data);
@@ -80,7 +80,7 @@ function openMenu() {
       $("#menuContainer").removeClass("menuOpen");
       $("#menuContainer").css("top", "9%");
       menuAnimation = false;
-    }, 1250);
+    }, 250);
   }
 }
 
@@ -104,7 +104,7 @@ function closeMenu() {
       $("#menuContainer").css("top", "-30%");
       $(".menuOption").css("visibility", "hidden");
       menuAnimation = false;
-    }, 1250);
+    }, 250);
   }
 }
 
@@ -151,6 +151,7 @@ function setMenu() {
 
 function setPage(newIndex) {
   if (!animation) {
+    closeMenu();
     if (newIndex == 0) {
 
       if (index == 1) {
@@ -168,8 +169,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "hidden");
           $("#skyContainer").css("visibility", "visible");
-          setHomeText();
-        }, 5000);
+        }, 500);
         hideMainHive();
         hideAbout();
       } else if (index == 2) {
@@ -187,8 +187,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "hidden");
           $("#skyContainer").css("visibility", "visible");
-          setHomeText();
-        }, 5000);
+        }, 500);
         hideMainHive();
         hideAbout();
       }
@@ -210,7 +209,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
           constructMainHive();
-        }, 5000);
+        }, 500);
         hideAbout();
         $("#skyContainer").css("visibility", "hidden");
       } else if (index == 2) {
@@ -228,7 +227,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
           constructMainHive();
-        }, 5000);
+        }, 500);
         hideAbout();
         $("#skyContainer").css("visibility", "hidden");
       }
@@ -249,7 +248,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
           constructAbout();
-        }, 5000);
+        }, 500);
         hideMainHive();
         $("#skyContainer").css("visibility", "hidden");
       } else if (index == 1) {
@@ -267,7 +266,7 @@ function setPage(newIndex) {
           index = newIndex;
           $("#contentContainer").css("visibility", "visible");
           constructAbout();
-        }, 5000);
+        }, 500);
         hideMainHive();
         $("#skyContainer").css("visibility", "hidden");
       }
